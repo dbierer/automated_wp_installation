@@ -1,0 +1,21 @@
+version: "3"
+services:
+  =CONTAINER=:
+    container_name: =CONTAINER=
+    hostname: =DNS=
+    image: images/=CONTAINER=
+    volumes:
+     - ".:/repo"
+    ports:
+     - "8008:80"
+    build: .
+    restart: always
+    networks:
+      =CONTAINER=_net:
+        ipv4_address: =CONTAINER_IP=
+networks:
+  =CONTAINER=_net:
+    ipam:
+      driver: default
+      config:
+      - subnet: "=CONTAINER_SUBNET="

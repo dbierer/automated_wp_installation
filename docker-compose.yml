@@ -1,0 +1,21 @@
+version: "3"
+services:
+  wp_demo:
+    container_name: wp_demo
+    hostname: unlikelysource.local
+    image: images/wp_demo
+    volumes:
+     - ".:/repo"
+    ports:
+     - "8008:80"
+    build: .
+    restart: always
+    networks:
+      wp_demo_net:
+        ipv4_address: 172.18.33.33
+networks:
+  wp_demo_net:
+    ipam:
+      driver: default
+      config:
+      - subnet: "172.18.33.0/16"
