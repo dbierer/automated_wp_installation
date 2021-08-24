@@ -2,7 +2,7 @@ version: "3"
 services:
   wp_demo:
     container_name: wp_demo
-    hostname: unlikelysource.local
+    hostname: demo.local
     image: images/wp_demo
     volumes:
      - ".:/repo"

@@ -12,8 +12,8 @@ RUN \
     /etc/init.d/mysql start && \
     sleep 3 && \
     mysql -uroot -v -e "CREATE DATABASE IF NOT EXISTS $DB_NAM;" && \
-    mysql -uroot -v -e "CREATE USER IF NOT EXISTS '$DB_USR'@'localhost' IDENTIFIED BY '$DB_PWD';" && \
-    mysql -uroot -v -e "GRANT ALL PRIVILEGES ON *.* TO '$DB_USR'@'localhost';" && \
+    mysql -uroot -v -e "CREATE USER IF NOT EXISTS '$DB_USR'@'$DB_HOST' IDENTIFIED BY '$DB_PWD';" && \
+    mysql -uroot -v -e "GRANT ALL PRIVILEGES ON *.* TO '$DB_USR'@'$DB_HOST';" && \
     mysql -uroot -v -e "FLUSH PRIVILEGES;"
 RUN \
     echo "Installing phpMyAdmin ..." && \
